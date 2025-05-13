@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/cancel.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('mainpt_page') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <!-- Cancel Ticket Section -->
+        <div class="cancel-box">
+            <h1>Cancel Your Ticket</h1>
+            <p>Are you sure you want to cancel this ticket?</p>
+
+            <div class="ticket-info">
+                <p><strong>Ticket ID:</strong> #123456</p>
+                <p><strong>From:</strong> Hindupur</p>
+                <p><strong>To:</strong> Tirupathi</p>
+                <p><strong>Fare:</strong> ₹125.00</p>
+                <p><strong>Booking Date:</strong> Jan 11, 2025</p>
+            </div>
+
+            <button class="cancel-btn" onclick="cancelTicket()">Cancel Ticket</button>
+            <p id="success-message" class="success-message"></p>
+        </div>
+    </div>
+
+    <script>
+        function cancelTicket() {
+            document.getElementById("success-message").innerText = "Your ticket has been successfully canceled!";
+        }
+    </script>
+
+</body>
+</html>

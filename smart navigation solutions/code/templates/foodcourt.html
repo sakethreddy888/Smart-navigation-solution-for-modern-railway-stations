@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Nearby Food Court</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/foodcourt.css') }}">
+    <script async defer
+    src="https://maps.gomaps.pro/maps/api/js?key=AlzaSycZMn48p16q4K92SyiSOcI_jd-TYkzNpin&libraries=geometry,places&callback=initMap"></script>
+ <script src="{{ url_for('static', filename='/js/foodcourt.js') }}"></script>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('home') }}"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    
+        <div class="foodcourt">
+    
+        <h1><i class="fa-solid fa-utensils"></i>Food Court</h1>
+        
+        <form id="direction-form">
+            <label for="from-location">Your Location:</label>
+            <input type="text" id="from-location" placeholder="Fetching your location..." readonly>
+            
+            <label for="to-location">Nearest Food Court:</label>
+            <input type="text" id="to-location" placeholder="Searching..." readonly>
+            
+            <button type="button" onclick="findNearestFoodCourt()">Find Food Court</button>
+        </form>
+        <div id="map" style="height: 500px; width: 100%; margin-top: 20px;"></div>
+    </div>
+
+</body>
+</html>

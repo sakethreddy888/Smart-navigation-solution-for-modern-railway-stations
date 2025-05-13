@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Station Help Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/help.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="help">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('home') }}">
+
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+    <div class="header">Railway Station Help Center</div>
+    <div class="nav">
+        <a href="#help">Help Desk</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+    
+    <div class="container">
+        <h2 id="help">Need Assistance?</h2>
+        <p>Our staff is available 24/7 to assist you with tickets, train schedules, and station inquiries.</p>
+        
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <ul>
+            <li><strong>How can I book a ticket?</strong> You can book tickets online or at the station counter.</li>
+            <li><strong>Where can I find train schedules?</strong> Train schedules are available at the inquiry desk and online.</li>
+            <li><strong>Is there a waiting lounge?</strong> Yes, we have a comfortable waiting area for passengers.</li>
+        </ul>
+        
+        <h2 id="contact">Contact Us</h2>
+        <p>Email: support@railwaystation.com</p>
+        <p>Phone: 139 ,182</p>
+        
+    
+    </div>
+    
+    <div class="footer">&copy; 2025 Railway Station Help Center</div>
+</body>
+</html>
+

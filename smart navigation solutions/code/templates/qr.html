@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/qr.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="qr-container">
+        <h1>Your QR Code</h1>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <p>Accepted Payment Methods:</p>
+            <div class="payment-icons">
+                <!-- Google Pay -->
+                <i class="fab fa-google-pay" title="Google Pay"></i>
+
+                <!-- PhonePe (Custom SVG) -->
+                <img src="{{ url_for('static', filename='/images/phone.jpg') }}" alt="PhonePe" style="width: 40px; height: 40px; border-radius: 8px;">
+               
+                <!-- Paytm (Custom SVG) -->
+                  <img src="{{ url_for('static', filename='/images/paytm.jpg') }}" alt="Paytm" style="width: 40px; height: 40px; border-radius: 8px;">
+
+                
+        </div>
+
+        <!-- QR Code -->
+        <div id="qrcode"></div>
+
+        <!-- Total Amount -->
+        <p id="total-amount"></p>
+
+        <!-- Countdown Timer -->
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Retrieve data from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const station = urlParams.get("station");
+            const tickets = urlParams.get("tickets");
+            const totalPrice = urlParams.get("totalPrice");
+
+            // Display total amount with Rupee symbol
+            $("#total-amount").text(`Total Amount: ₹${totalPrice}`);
+
+            // Generate QR Code
+            new QRCode(document.getElementById("qrcode"), {
+                text: `Station: ${station}, Tickets: ${tickets}, Total: ₹${totalPrice}`,
+                width: 128,
+                height: 128
+            });
+
+            // Countdown timer (3 minutes)
+            let timeLeft = 180; // 3 minutes in seconds
+            const countdownElement = $("#countdown");
+
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                countdownElement.text(`Expires in: ${minutes}:${seconds.toString().padStart(2, "0")}`);
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.text("QR Code has expired.");
+                    $("#qrcode").empty(); // Clear QR code
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

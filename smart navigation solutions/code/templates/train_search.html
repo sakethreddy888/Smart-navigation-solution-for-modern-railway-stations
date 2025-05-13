@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/train_search.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/trainsearch.js') }}" defer></script>
+</head>
+<body>
+    <div class="train_search">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('home') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <h1><i class="fas fa-train"></i>Train Search</h1>
+
+        <form onsubmit="event.preventDefault(); searchTrain();">
+
+            <label for="fromStation">From Station:</label>
+            <div class="input-with-mic">
+                <input type="text" id="fromStation" placeholder="Enter starting station">
+                <button type="button" onclick="startListening('fromStation')" title="Speak From">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        
+            <label for="toStation">To Station:</label>
+            <div class="input-with-mic">
+                <input type="text" id="toStation" placeholder="Enter destination station">
+                <button type="button" onclick="startListening('toStation')" title="Speak To">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        
+            <button type="submit">Search</button>
+        
+        </form>
+    </div>
+    
+    <div id="results"></div>
+</body>
+</html>

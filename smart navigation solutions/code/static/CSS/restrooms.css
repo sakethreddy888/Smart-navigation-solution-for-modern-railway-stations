@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full-screen height */
+}
+
+/* Container Box */
+.directions-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.back-button a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.back-button a:hover {
+    color: #007bff;
+}
+
+/* Heading */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid green; /* Green border */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for mic button */
+    border: 2px solid green; /* Green border */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Default Mic Button */
+.mic-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: green;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Mic Active (During Voice Recording) */
+.mic-button.active {
+    background-color: orange; /* Turns orange when recording */
+}
+
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: lightskyblue;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Google Maps Display */
+#map {
+    width: 100%;
+    height: 300px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 500px) {
+    .directions-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Train Tracking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/live_tracking.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <div class="live_tracking">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('home') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+    <h2><i class="fas fa-location"></i>Live Train Tracking</h2>
+    <form id="trainForm">
+        <input type="text" id="train_no" placeholder="Enter Train Number">
+        <button type="submit">Search</button>
+        <button type="button" id="micButton">
+            <i class="fas fa-microphone"></i> <!-- FontAwesome icon -->
+        </button>
+    </form>
+    <h3 id="trainTitle" style="text-align:center; display:none;">Train Stations</h3>
+
+    <table id="trainTable" style="display:none;" border="1">
+        <thead>
+            <tr>
+                <th>Station Name</th>
+                <th>Day</th>
+                <th>Date</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="trainData"></tbody>
+    </table>    
+
+    <script src="{{ url_for('static', filename='/js/clean_train_schedule _livetracking.js') }}"></script>
+</body>
+</html>

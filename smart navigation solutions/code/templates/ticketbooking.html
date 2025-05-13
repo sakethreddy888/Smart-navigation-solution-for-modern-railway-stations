@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/ticketbooking.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="booking-container">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('mainpt_page') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <h1>Book Your Ticket</h1>
+        <form action="{{ url_for('ticket_booking') }}" method="POST">
+            
+            <!-- From Station -->
+            <label for="from-station">From Station:</label>
+            <input type="text" id="from-station" name="from" placeholder="Search station..." required>
+
+            <!-- To Station -->
+            <label for="to-station">To Station:</label>
+            <input type="text" id="to-station" name="to" placeholder="Search station..." required>
+            
+            <!-- Travel Date -->
+            <label for="date">Travel Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <!-- Full Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Class -->
+            <label for="class">Class:</label>
+            <select id="class" name="class" required>
+                <option value="">Select a class</option>
+                <option value="first">First Class</option>
+                <option value="second">Second Class</option>
+                <option value="sleeper">Sleeper Class</option>
+                <option value="chair">Chair</option>
+                <option value="general">General</option>
+            </select>
+
+            <!-- Train Number (Hidden Initially) -->
+            <div id="train-number-container" style="display: none;">
+                <label for="train-number">Train Number:</label>
+                <input type="text" id="train-number" name="train-number" placeholder="Enter Train Number">
+            </div>
+
+            <!-- Number of Tickets -->
+            <label for="seats">Number of Tickets:</label>
+            <input type="number" id="seats" name="seats" min="1" max="4" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/ticketbooking.js') }}"></script> 
+</body>
+</html>

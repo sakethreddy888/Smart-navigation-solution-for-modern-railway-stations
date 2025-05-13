@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directions to Ticket Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/directions to platfrom.css') }}">
+    <script async defer
+    src="https://maps.gomaps.pro/maps/api/js?key=AlzaSycZMn48p16q4K92SyiSOcI_jd-TYkzNpin&libraries=geometry,places&callback=initMap">
+    </script>
+    <script src="{{ url_for('static', filename='/js/directions.js') }}"></script>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('mainpt_page') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    <div class="directions-container">
+        <h1>Find Your Way to the Ticket Counter</h1>
+        
+        <form id="direction-form">
+            <label for="from-location">From:</label>
+            <div class="input-with-mic">
+                <input id="from-location" type="text" placeholder="Enter starting location">
+                <i class="fas fa-microphone mic-icon" onclick="startVoiceInput('from')" title="Speak From Location"></i>
+            </div>
+        
+            <label for="to-location">To:</label>
+            <div class="input-with-mic">
+                <input id="to-location" type="text" placeholder="Enter destination">
+                <i class="fas fa-microphone mic-icon" onclick="startVoiceInput('to')" title="Speak To Location"></i>
+            </div>
+        
+            <button type="button" onclick="getManualLocation()">Get Location</button>
+        </form>
+        
+
+        <div id="map" style="height: 500px; width: 100%; margin-top: 20px;"></div> 
+    </div>
+</body>
+</html>
+

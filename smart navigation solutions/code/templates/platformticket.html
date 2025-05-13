@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Ticket Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/platfromticket.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/platfromticket.js') }}" defer></script>
+</head>
+<body>
+    <div class="platform-ticket-container">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('mainpt_page') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <h1>Platform Ticket Booking</h1>
+        <form id="ticket-form" method="POST" action="{{ url_for('generate_qr') }}">
+
+            <!-- Station Selection -->
+            <label for="station-search">Enter Station Name:</label>
+            <input type="text" id="station-search" placeholder="Enter station or location..." required>
+
+            <!-- Number of Tickets -->
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets" min="1" max="10" required>
+
+            <!-- Display Price -->
+            <p id="total-price">Total: ₹0</p>
+
+            <!-- Submit Button -->
+            <button type="submit">Display QR Code</button>
+        </form>
+    </div>
+</body>
+</html>

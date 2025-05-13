@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Ticket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/showticket.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="directions-container">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('mainpt_page') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="ticket">
+        <h1>JOURNEY (M-TICKET)</h1>
+        <p class="fare">FARE: ₹125.00</p>
+        <p class="route">From: Hindupur</p>
+        <p class="route">To: Tirupathi</p>
+        <p class="via">Via: FAITHLESS</p>
+
+        <div class="details">
+            <p>Adults: 1 | Children: 0</p>
+            <p>Class: Second (1)</p>
+            <p>Service Type: Ordinary (0)</p>
+            <p class="booking-date">Booking Date: Jan 11, 2025</p>
+        </div>
+    </div>
+
+</body>
+</html>

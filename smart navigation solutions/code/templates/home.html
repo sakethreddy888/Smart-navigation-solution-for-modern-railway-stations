@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/homepage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <!-- Grouped Links -->
+            <div class="grouped-links">
+                <ul>
+                    <li><a id="home-link" href="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a id="ticket-link" href="mainpt"><i class="fas fa-ticket-alt"></i> Ticket Booking</a></li>
+                    <li><a id="help-link" href="helpcall"><i class="fas fa-phone"></i> Help</a></li>
+                    <li>
+                        <a href="#" id="language-text" class="language-dropdown"><i class="fas fa-globe"></i> Language</a>
+                        <ol class="dropdown-menu" id="language-menu">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="hi">हिन्दी (Hindi)</a></li>
+                            <li><a href="#" data-lang="te">తెలుగు (Telugu)</a></li>
+                            <li><a href="#" data-lang="kn">ಕನ್ನಡ (Kannada)</a></li>
+                            <li><a href="#" data-lang="ml">മലയാളം (Malayalam)</a></li>
+                            <li><a href="#" data-lang="ta">தமிழ் (Tamil)</a></li>
+                            <li><a href="#" data-lang="ur">اردو (Urdu)</a></li>
+                            <!-- Add other languages here -->
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <header>
+            <h1 id="welcome-text">Welcome to Railway Portal</h1>
+        </header>
+
+        <!-- Icon Grid -->
+        <div class="icon-grid">
+            <div class="icon-item train">
+                <a href="{{ url_for('train_search_page') }}"><i class="fas fa-train"></i> Train</a>
+                <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/train.mp3')"></i>
+            </div>
+
+        <div class="icon-item ticket">
+            <a id="ticket-text" href="{{ url_for('mainpt_page') }}"><i class="fas fa-ticket-alt"></i> Ticket Booking</a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/ticket.mp3')"></i>
+        </div>
+
+        <div class="icon-item live-tracking">
+            <a href="{{ url_for('live_tracking') }}">
+                <i class="fas fa-map-marked-alt"></i> Live Tracking
+            </a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/live.mp3')"></i>
+        </div>
+        
+        <div class="icon-item food-court">
+            <a href="{{ url_for('foodcourt_page') }}"><i class="fas fa-utensils"></i> Food Court</a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/food.mp3')"></i>
+        </div>
+
+        <div class="icon-item hotel">
+            <a href="{{ url_for('hotel_page') }}"><i class="fas fa-hotel"></i> Hotel Room</a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/hotel.mp3')"></i>
+        </div>
+
+        <div class="icon-item restroom">
+            <a  href="{{ url_for('restrooms_page') }}"><i class="fas fa-restroom"></i> Rest Room</a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/restroom.mp3')"></i>
+        </div>
+
+        <div class="icon-item help">
+            <a  href="{{ url_for('helpcall_page') }}"><i class="fas fa-phone"></i> Help Call</a>
+            <i class="fas fa-volume-up speaker-icon" onclick="playAudio('/static/audio/help.mp3')"></i>
+        </div>
+    </div>
+        
+        <script defer src="{{ url_for('static', filename='js/lang.js')}}"></script>
+        <script>
+            let currentAudio = null;
+          
+            function playAudio(src) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+              currentAudio = new Audio(src);
+              currentAudio.play().catch(error => {
+                console.error("Playback error:", error);
+              });
+            }
+          </script>
+          
+</body>
+</html>

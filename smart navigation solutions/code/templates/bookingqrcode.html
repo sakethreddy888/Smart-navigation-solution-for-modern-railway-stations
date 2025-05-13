@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/code.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="qr-container">
+        <h1>Your QR Code</h1>
+
+        <!-- Ticket Details -->
+        <div class="ticket-details">
+            <p><strong>From:</strong> <span>{{ from_station }}</span></p>
+            <p><strong>To:</strong> <span>{{ to_station }}</span></p>
+            <p><strong>Travel Date:</strong> <span>{{ travel_date }}</span></p>
+            <p><strong>Name:</strong> <span>{{ name }}</span></p>
+            <p><strong>Number of Tickets:</strong> <span>{{ seats }}</span></p>
+            <p><strong>Class:</strong> <span>{{ travel_class }}</span></p>
+            <p><strong>Train Number:</strong> <span>{{ train_number }}</span></p>
+        </div>
+
+        <!-- Total Amount Displayed Separately -->
+        <div class="total-amount-container">
+            <h2>Total Amount: ₹{{ total_price }}</h2>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <p>Accepted Payment Methods:</p>
+            <div class="payment-icons">
+                <i class="fab fa-google-pay" title="Google Pay"></i>
+                <img src="{{ url_for('static', filename='/images/phone.jpg') }}" alt="PhonePe" style="width: 40px; height: 40px; border-radius: 8px;">
+                <img src="{{ url_for('static', filename='/images/paytm.jpg') }}" alt="Paytm" style="width: 40px; height: 40px; border-radius: 8px;">
+            </div>
+        </div>
+
+        <!-- QR Code -->
+        <div id="qrcode"></div>
+
+        <!-- Countdown Timer -->
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Retrieve values from Flask template
+            const fromStation = "{{ from_station }}";
+            const toStation = "{{ to_station }}";
+            const travelDate = "{{ travel_date }}";
+            const fullName = "{{ name }}";
+            const tickets = "{{ seats }}";
+            const travelClass = "{{ travel_class }}";
+            const trainNumber = "{{ train_number }}";
+            const totalPrice = "{{ total_price }}";
+
+            // Generate QR Code with booking details
+            new QRCode(document.getElementById("qrcode"), {
+                text: `From: ${fromStation}, To: ${toStation}, Date: ${travelDate}, Name: ${fullName}, Tickets: ${tickets}, Class: ${travelClass}, Train: ${trainNumber}`,
+                width: 128,
+                height: 128
+            });
+
+            // Countdown timer (3 minutes)
+            let timeLeft = 180; // 3 minutes in seconds
+            const countdownElement = $("#countdown");
+
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                countdownElement.text(`Expires in: ${minutes}:${seconds.toString().padStart(2, "0")}`);
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.text("QR Code has expired.");
+                    $("#qrcode").empty(); // Clear QR code
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

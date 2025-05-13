@@ -1,0 +1,172 @@
+/* General Page Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.live_tracking {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.back-button a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.back-button a:hover {
+    color: #007bff;
+}
+
+/* Form Styles */
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid blue;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: lightskyblue;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #06b32c;
+}
+
+/* Table Wrapper to enable scrolling */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    min-width: 600px; /* Ensures table is always fully visible */
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+th {
+    background-color: #dc8a20;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+.status-icon {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+/* Colors for Different Statuses */
+.on-time {
+    color: green;
+}
+
+.delayed {
+    color: orange;
+}
+
+.arrived {
+    color: blue;
+}
+
+.cancelled {
+    color: red;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .live_tracking {
+        width: 95%;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+/* Microphone Button Inside Input */
+#micButton {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #007bff;
+}
+
+#micButton:hover {
+    color: #0056b3;
+}

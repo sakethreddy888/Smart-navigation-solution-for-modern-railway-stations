@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART NAVIGATION SOLUTIONS FOR MODERN RAILWAY STATIONS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="{{ url_for('auth.login') }}">Login</a> | <a href="{{ url_for('auth.register') }}">Register</a>
+    </div>
+    
+    <div class="container">
+        <h1>Welcome to SMART NAVIGATION SOLUTIONS FOR MODERN RAILWAY STATIONS</h1>
+        <p>Find train stations across India on the map below:</p>
+        
+        <!-- Map Container -->
+        <div id="map"></div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 IRCTC. All Rights Reserved.
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+   <!-- <script>
+        // Initialize map centered on India
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Latitude & Longitude of India
+
+        // Add OpenStreetMap layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Train Stations Data (Example Locations)
+        var stations = [
+            { name: "New Delhi Railway Station", lat: 28.6448, lon: 77.2167 },
+            { name: "Mumbai CST", lat: 18.9401, lon: 72.8356 },
+            { name: "Chennai Central", lat: 13.0839, lon: 80.2700 },
+            { name: "Kolkata Howrah", lat: 22.5853, lon: 88.3468 },
+            { name: "Bengaluru City Junction", lat: 12.9784, lon: 77.5714 }
+        ];
+
+        // Add Markers for Each Station
+        stations.forEach(station => {
+            L.marker([station.lat, station.lon])
+                .addTo(map)
+                .bindPopup(`<b>${station.name}</b>`);
+        });
+    </script>-->
+</body>
+</html>

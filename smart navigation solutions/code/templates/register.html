@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/registration-form.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="live_tracking">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('auth.login') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+    <div id="register-form">
+    <h2>Register</h2>
+    <form method="post">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="date" name="dob" required><br>
+        <input type="text" name="mobile" placeholder="Mobile" required><br>
+        <input type="text" name="address" placeholder="Address" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrooms Locator</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/CSS/restrooms.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="directions-container">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="{{ url_for('home') }}">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <!-- Heading -->
+        <h1>🚻 Restrooms Locator</h1>
+
+        <!-- Form -->
+        <form id="direction-form">
+            <!-- User's Current Location -->
+            <label for="current-location">Your Location:</label>
+            <div class="input-container">
+                <input type="text" id="current-location" placeholder="Enter your location..." required>
+                <button type="button" id="mic-from" class="mic-button">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+
+            <!-- Destination (Station) -->
+            <label for="station-search">Select Station:</label>
+            <div class="input-container">
+                <input type="text" id="station-search" placeholder="Search station..." required list="stations-list">
+                <button type="button" id="mic-to" class="mic-button">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+
+            <!-- Auto-suggestion Datalist -->
+            <datalist id="stations-list"></datalist>
+
+            <!-- Get Directions Button -->
+            <button type="submit" class="btn">Get Directions</button>
+        </form>
+
+        <!-- Map Display -->
+        <div id="map" style="height: 400px;"></div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='/js/restrooms.js') }}"></script>
+
+</body>
+</html>
